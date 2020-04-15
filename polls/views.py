@@ -23,6 +23,7 @@ def detail(request,question_id):
     #     raise Http404("question does not exist")
 
     # using get_object_or_404()
+    
     question = get_object_or_404(Question, pk=question_id)
 
     return render(request, 'polls/details.html', {'question': question})
