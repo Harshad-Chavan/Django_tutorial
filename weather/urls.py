@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import index_view,IndexView
+from .views import IndexView
 
 appname = 'weather'
 urlpatterns = [
