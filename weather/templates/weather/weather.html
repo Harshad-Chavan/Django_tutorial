@@ -63,7 +63,7 @@
     {% for weather_data in splitted_weather_data %}
     <div class="card-deck">
         {% for city_weather in weather_data %}
-        <div class="card bg-light text-center" style="width: 4rem;height: 15rem;">
+        <div class="card bg-light text-center">
         {% if city_weather.description != "" %}
             <img src="http://openweathermap.org/img/w/{{ city_weather.icon}}.png" style="width: 4rem;height:4rem;align-self: center;" alt="...">
         <div class="card-body">
