@@ -14,8 +14,8 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 </head>
 
-<body style="background-color: #808080;">
-    <section class="hero is-primary">
+<body style="background-color: #303841;">
+    <section class="hero" style="background-color: #00adb5;">
         <div class="hero-body">
             <div class="container">
                 
@@ -64,18 +64,19 @@
     <div class="card-deck">
         {% for city_weather in weather_data %}
             {% if city_weather.city != "" %}
-            <div class="card text-center" style="width: 6rem;height: 15rem;border-radius: 1cm;">
-            <img src="http://openweathermap.org/img/w/{{ city_weather.icon}}.png" style="color: aliceblue;width: 6rem;height: 6rem;align-self: center" class="card-img-top" alt="">
+            <div class="card text-center" style="width: 6rem;height: 15rem;border-radius: 1cm;background-color: #3a4750;color: #EEEEEE">
+            <img src="http://openweathermap.org/img/w/{{ city_weather.icon}}.png" style="width: 6rem;height: 6rem;align-self: center" class="card-img-top" alt="">
             <div class="card-body">
                 <h5 class="card-title">{{ city_weather.city }}</h5>
                 <p class="card-text">
-                    <span class="subtitle">{{ city_weather.temperature}} &#8451;</span>
-                    <br> {{ city_weather.description}}
+                    {{ city_weather.temperature}} &#8451;
+                    <br> 
+                    {{ city_weather.description}}
                 </p>
             </div>
             </div>
             {% else %}
-            <div class="card text-center " style="width: 6rem;height: 15rem;background-color: #808080;visibility: hidden;" >
+            <div class="card text-center " style="width: 6rem;height: 15rem;background-color: #3a4750;;visibility: hidden;" >
             <!-- <img src="http://openweathermap.org/img/w/{{ city_weather.icon}}.png" style="width: 6rem;height: 6rem;align-self: center;" class="card-img-top" alt=""> -->
             <div class="card-body">
                 <h5 class="card-title"></h5>
