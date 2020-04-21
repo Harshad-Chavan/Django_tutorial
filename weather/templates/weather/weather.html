@@ -14,7 +14,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 </head>
 
-<body>
+<body style="background-color: #808080;">
     <section class="hero is-primary">
         <div class="hero-body">
             <div class="container">
@@ -61,21 +61,31 @@
         </div>
     </section>
     {% for weather_data in splitted_weather_data %}
-    <div class="card-group">
+    <div class="card-deck">
         {% for city_weather in weather_data %}
-        <div class="card" style="">
-            <img src="http://openweathermap.org/img/w/{{ city_weather.icon}}.png" style="width: 6rem;height: 6rem;align-self: center;" class="card-img-top" alt="">
+            {% if city_weather.city != "" %}
+            <div class="card text-center" style="width: 6rem;height: 15rem;border-radius: 1cm;">
+            <img src="http://openweathermap.org/img/w/{{ city_weather.icon}}.png" style="color: aliceblue;width: 6rem;height: 6rem;align-self: center" class="card-img-top" alt="">
             <div class="card-body">
-            <h5 class="card-title">{{ city_weather.city }}</h5>
-            <p class="card-text">
-                <span class="subtitle">{{ city_weather.temperature}} &#8451;</span>
-                <br> {{ city_weather.description}}
-            </p>
+                <h5 class="card-title">{{ city_weather.city }}</h5>
+                <p class="card-text">
+                    <span class="subtitle">{{ city_weather.temperature}} &#8451;</span>
+                    <br> {{ city_weather.description}}
+                </p>
+            </div>
+            </div>
+            {% else %}
+            <div class="card text-center " style="width: 6rem;height: 15rem;background-color: #808080;visibility: hidden;" >
+            <!-- <img src="http://openweathermap.org/img/w/{{ city_weather.icon}}.png" style="width: 6rem;height: 6rem;align-self: center;" class="card-img-top" alt=""> -->
+            <div class="card-body">
+                <h5 class="card-title"></h5>
+                <p class="card-text">
+                  <span class="subtitle"></span>
+                  <br>
+              </p>
+            </div>
           </div>
-          <div class="card-footer">
-            <small class="text-muted">Last updated 3 mins ago</small>
-          </div>
-        </div>
+            {% endif %}
         {% endfor %}
     </div>
     <br>
