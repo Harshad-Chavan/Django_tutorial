@@ -12,9 +12,20 @@
     
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <script>$(document).ready(function(){
+
+        /*! Fades in page on load */
+        $('.card').css('display', 'none');
+        $('.card').fadeIn(1000);
+        
+        });
+    </script>
+
 </head>
 
 <body style="background-color: #303841;">
+
     <section class="hero" style="background-color: #00adb5;">
         <div class="hero-body">
             <div class="container">
@@ -64,14 +75,14 @@
     <div class="card-deck">
         {% for city_weather in weather_data %}
             {% if city_weather.city != "" %}
-            <div class="card text-center" style="width: 6rem;height: 15rem;border-radius: 1cm;background-color: #3a4750;color: #EEEEEE">
+            <div class="card text-center" style="box-shadow :3px 3px #00adb5 ;border-color:#00adb5 ;border-radius: 1cm;background-color: #3a4750;color: #EEEEEE;">
             <img src="http://openweathermap.org/img/w/{{ city_weather.icon}}.png" style="width: 6rem;height: 6rem;align-self: center" class="card-img-top" alt="">
             <div class="card-body">
                 <h5 class="card-title">{{ city_weather.city }}</h5>
                 <p class="card-text">
-                    {{ city_weather.temperature}} &#8451;
+                    <h6>{{ city_weather.temperature}} &#8451;</h6>
                     <br> 
-                    {{ city_weather.description}}
+                    <h6>{{ city_weather.description}}</h6>
                 </p>
             </div>
             </div>
@@ -91,8 +102,6 @@
     </div>
     <br>
     {% endfor %}
-    <footer class="footer">
-    </footer>
 </body>
 
 </html>
